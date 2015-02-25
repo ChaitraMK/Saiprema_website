@@ -1,0 +1,592 @@
+<div class="row">
+	<div id="breadcrumb" class="col-md-12">
+		<ol class="breadcrumb">
+			<li><a href="index.html">Dashboard</a></li>
+			<li><a href="#">Courses</a></li>
+			<li><a href="#">addcourse</a></li>
+		</ol>
+	</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+           <div class="bg-success" id="add-success" hidden>
+                                            <i class="fa fa-check"></i> <b>Success!</b>
+                                            syllabus saved Successfully.
+                                        </div>
+                                        <div class="bg-success" id="edit-success" hidden>
+                                            <i class="fa fa-check"></i> <b>Success!</b>
+                                            syllabus edited Successfully.
+                                        </div>
+                                        
+                                        <div class="bg-warning" id="select-entry" hidden>
+                                            <i class="fa fa-ban"></i> <b>Error!</b>
+                                            Select an entry from below table.
+                                        </div>
+                                        <div class="bg-danger" id="delete" hidden>
+                                            <i class="fa fa-check"></i> <b>Success!</b>
+                                           syllabus deleted Successfully.
+                                        </div>
+                                    </div>
+ </div>    
+<div class="row pull-right" id="btns">
+<div  class="col-md-12">
+<button type="button" class="btn btn-success btn-lg " id="syllabus-btn" name="syllabus-btn">Add </button>
+                  <button type="button" class="btn btn-warning btn-lg " id="edit-syllabus-btn" name="edit-syllabus-btn">Edit</button>
+                  <button type="button" class="btn btn-primary btn-lg" id="view-btn" name="view-btn">View </button>
+
+                   <button type="button" class="btn btn-danger btn-lg" id="delete-btn" name="delete-btn">Delete </button>
+</div>
+</div>                   
+<div class="row" id="syllabus-table">
+	<div class="col-xs-12">
+    	<div class="box">
+			<div class="box-header">
+			    <div class="box-name">
+					<i class="fa fa-linux"></i>
+					<span>Syllabus Details</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+					<a class="close-link">
+						<i class="fa fa-times"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content no-padding table-responsive">
+
+				<table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-2">
+				
+					<thead>
+						<tr>
+						<th></th>
+							<th><label><input type="text" name="search_course" value="Search Course" class="search_init" /></label></th>
+							<th><label><input type="text" name="search_course" value="Search chapter" class="search_init" /></label></th>
+							<th><label><input type="text" name="search_desc" value="Search content" class="search_init" /></label></th>
+							
+						</tr>
+					</thead>
+					<tbody id="view-row">
+						
+					</tbody>
+					<tfoot>
+						<tr>
+						    <th></th>
+							<th>Course Name</th>
+							<th>chapter Name</th>
+							<th>Contents</th>
+							
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row" id="add-syllabus" hidden>
+	<div class="col-xs-12">
+    	<div class="box">
+			<div class="box-header">
+			    <div class="box-name">
+					<i class="fa fa-search"></i>
+					<span>Enter Syllabus</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+					<a class="close-link">
+						<i class="fa fa-times"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content">
+				<h4 class="page-header">Enter Syllabus</h4>
+				<form class="form-horizontal" role="form" id="add-form">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Select Course</label>
+						<div class="col-sm-4">
+							<select id="cname" name="cname">
+							
+						</select>
+						</div>
+						
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Select Chapter</label>
+						<div class="col-sm-4">
+							<select id="chname" name="chname">
+							
+						</select>
+						</div>
+						
+					</div>
+					<div class="form-group has-success has-feedback">
+						<label class="col-sm-2 control-label" for="form-styles">Enter Content</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" rows="5" id="sycontent" name="sycontent">
+								
+							</textarea>
+						</div>
+						
+					</div>
+					
+					
+					</form>
+					<div class="clearfix"></div>
+
+
+					<div >
+						
+					
+							<button type="submit" class="btn btn-primary btn-label-left" id="save" name="save">
+							<span><i class="fa fa-clock-o"></i></span>
+								Submit
+							</button>
+							<button type="cancel" class="btn btn-default btn-label-left" id="cancel" name="cancel">
+							<span><i class="fa fa-clock-o txt-danger"></i></span>
+								Cancel
+						   </button>
+						</div>
+              </div>   
+
+	</div>
+</div>
+</div>
+
+<div class="row" id="view-syllabus" hidden>
+	<div class="col-xs-12">
+    	<div class="box">
+			<div class="box-header">
+			    <div class="box-name">
+					<i class="fa fa-search"></i>
+					<span>View Syllabus</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+					<a class="close-link">
+						<i class="fa fa-times"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content">
+				<h4 class="page-header">view Syllabus</h4>
+				<form class="form-horizontal" role="form" id="view-form">
+					<div class="form-group">
+						<label class="col-sm-2 control-label"> Course</label>
+						<div class="col-sm-4">
+							<input type="text" id="view-cname" disabled="true">
+											
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label"> Chapter</label>
+						<div class="col-sm-4">
+							<input type="text" id="view-chname" disabled="true">
+											
+						</div>
+						
+					</div>
+					<div class="form-group has-success has-feedback">
+						<label class="col-sm-2 control-label" for="form-styles"> Content</label>
+						<div class="col-sm-10">
+								<textarea class="form-control" rows="5" id="view-sycontent" disabled="true"></textarea>
+						</div>
+						
+					</div>
+					<div class="form-group has-success has-feedback">
+						<label class="col-sm-2 control-label" for="form-styles">Date</label>
+						<div class="col-sm-4">
+								<input type="text" id="view-sydate" disabled="true">
+						</div>
+						
+					</div>
+					
+					</form>
+					<div class="clearfix"></div>
+
+
+					<div >
+						
+					
+							
+							<button type="cancel" class="btn btn-default btn-label-left" id="cancel-view" name="cancel-view">
+							<span><i class="fa fa-clock-o txt-danger"></i></span>
+								Close
+						   </button>
+						</div>
+              </div>   
+
+	</div>
+</div>
+</div>
+
+<div class="row" id="edit-syllabus" hidden>
+	<div class="col-xs-12">
+    	<div class="box">
+			<div class="box-header">
+			    <div class="box-name">
+					<i class="fa fa-search"></i>
+					<span>Enter Syllabus</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+					<a class="close-link">
+						<i class="fa fa-times"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content">
+				<h4 class="page-header">Entering Syllabus</h4>
+				<form class="form-horizontal" role="form" id="edit-form">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Select Course</label>
+						<div class="col-sm-4">
+							<select id="edit-cname">
+							
+						</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Select Chapter</label>
+						<div class="col-sm-4">
+							<select id="edit-chname">
+							
+						</select>
+						</div>
+						
+					</div>
+					<div class="form-group has-success has-feedback">
+						<label class="col-sm-2 control-label" for="form-styles">Enter Content</label>
+						<div class="col-sm-10">
+								<textarea class="form-control" rows="5" id="edit-sycontent"></textarea>
+								
+						</div>
+						<div class="form-group" hidden>
+						<label class="col-sm-2 control-label" for="form-styles">Enter Content</label>
+						<div class="col-sm-10">
+								
+								<input type="text" class="form-control"  id="edit-syid" hidden>
+						</div>
+					</div>
+					
+					</form>
+					<div class="clearfix"></div>
+
+
+					<div >
+						
+					
+							<button type="submit" class="btn btn-primary btn-label-left" id="update" name="update">
+							<span><i class="fa fa-clock-o"></i></span>
+								Update
+							</button>
+							<button type="cancel" class="btn btn-default btn-label-left" id="cancel-update" name="cancel-update">
+							<span><i class="fa fa-clock-o txt-danger"></i></span>
+								Cancel
+						   </button>
+						</div>
+              </div>   
+
+</div>	
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+// Run Datables plugin and create 3 variants of settings
+function AllTables(){
+	TestTable1();
+	TestTable2();
+	TestTable3();
+	LoadSelect2Script(MakeSelect2);
+}
+function MakeSelect2(){
+	$('select').select2();
+	$('.dataTables_filter').each(function(){
+		$(this).find('label input[type=text]').attr('placeholder', 'Search');
+	});
+}
+
+// Run timepicker
+function DemoTimePicker(){
+	$('#input_time').timepicker({setDate: new Date()});
+}
+
+function load_All(){
+  var operation='getAllSyllabus';
+  $.ajax({
+    type: "POST",
+    url: "php/ajaxInterface/syllabus.php",
+    data:{operation:operation}
+    }).done(function(result)
+    { console.log(result);
+      m=result;
+      var dis='';
+      for(i=0;i<result.length;i++){
+        dis+='<tr>';
+        dis+="<td><input type='radio' name='ch' id='"+result[i]['syid']+"'</td>";
+        dis+="<td>"+result[i]['cname']+"</td>";
+        dis+="<td>"+result[i]['chname']+"</td>";
+        dis+="<td>"+result[i]['sycontent']+"</td>";
+        
+        
+        dis+='</tr>';
+      }
+      $('#view-row').html(dis);
+     
+
+    });
+
+
+} 
+$(document).ready(function() {
+	TinyMCEStart('#wysiwig_full', 'extreme');
+	TinyMCEStart('#wysiwig_simple', null);
+	// Load Datatables and run plugin on tables 
+	LoadDataTablesScripts(AllTables);
+	// Initialize datepicker
+	$('#input_date').datepicker({setDate: new Date()});
+	// Load Timepicker plugin
+	LoadTimePickerScript(DemoTimePicker);
+	// Add tooltip to form-controls
+	$('.form-control').tooltip();
+	
+	// Load example of form validation
+	LoadBootstrapValidatorScript(DemoFormValidator);
+	// Add drag-n-drop feature to boxes
+    WinMove();
+    //main code
+    load_All();
+    $('.selectpicker').selectpicker();
+    var operation='getAllCourse';
+  $.ajax({
+      type:'POST',
+      url:"php/ajaxInterface/syllabus.php",
+      data:{operation:operation}
+    }).done(function(result){
+       console.log(result);
+      var dis='';
+      for(var i=0;i<result.length;i++){
+        dis+="<option id="+result[i]['cid']+">"+result[i]['cname']+"</option>";
+      }
+      $('#cname').html('<option id="-1">---</option>'+dis).selectpicker();
+      
+     
+      
+    });
+
+     $('#cname').change(function(){
+      var operation='getAllChapterForCourse';
+      var cname=$('#cname').val();
+      console.log(cname);
+      $.ajax({
+        type:'POST',
+        url:"php/ajaxInterface/syllabus.php",
+        data:{operation:operation,cname:cname}
+      }).done(function(result){
+        console.log(result);
+        var dis='';
+      for(var i=0;i<result.length;i++){
+        dis+="<option id="+result[i]['chid']+">"+result[i]['chname']+"</option>";
+      }
+      $('#chname').html('<option id="-1">---</option>'+dis).selectpicker();
+      });
+    });
+
+	$('#syllabus-btn').click(function() {
+		
+         $('#add-syllabus').show();
+		$('#syllabus-table').hide();
+		$('#btns').hide();     
+    
+
+  
+		
+	});
+	
+	$('#save').click(function(){
+   
+             //var disabled = $('#add-cname-form').find(':input:disabled').removeAttr('disabled'); 
+             var cname= $('#cname').val();        
+              var chname=$('#chname').val();
+              var sycontent=$('#sycontent').val();
+              
+              console.log(sycontent);
+              var operation='createSyllabus';
+                            
+              $.ajax({
+               type: "POST",
+                url: "php/ajaxInterface/syllabus.php",
+                data:{operation:operation,cname:cname,chname:chname,sycontent:sycontent}
+                 }).done(function(result)
+                 { 
+                    console.log(result);
+                    if(result==1){
+                         $('#add-success').fadeIn(200).delay(5000).fadeOut(1000);
+                         $('#add-form')[0].reset();
+                         $('#add-syllabus').hide();
+		                 $('#syllabus-table').show();
+		                 $('#btns').show();
+                         load_All();
+                       }else{
+                      $('#exist').fadeIn(200).delay(5000).fadeOut(1000);
+                  }
+             }); 
+      
+ 
+      
+             
+  });
+
+
+
+	$('#cancel').click(function() {
+		$('#add-form')[0].reset();
+		$('#add-syllabus').hide();
+		$('#syllabus-table').show();
+		$('#btns').show();
+	});
+
+	$('#edit-syllabus-btn').click(function() {
+		var syid=$("input[type='radio'][name='ch']:checked").attr('id');
+    if(typeof syid == 'undefined'){
+      console.log(1);
+      $('#select-entry').fadeIn(200).delay(5000).fadeOut(1000);
+      return;
+    }
+    console.log(syid);
+    var operation='getSpecificSyllabus';
+    $.ajax({
+    type: "POST",
+    url: "php/ajaxInterface/syllabus.php",
+    data:{operation:operation,syid:syid}
+    }).done(function(result)
+    { console.log(result);
+    	
+    	$('#edit-cname').prepend("<option selected>"+result['cname']+"</option>").select2();
+      $('#edit-chname').prepend("<option selected>"+result['chname']+"</option>").select2();
+      $('#edit-sycontent').val(result['sycontent']);
+      $('#edit-syid').val(result['syid']);
+		$('#edit-syllabus').show();
+		$('#syllabus-table').hide();
+		$('#btns').hide();
+	});
+	});
+
+	$('#update').click(function(){
+      
+    var disabled = $('#edit-form').find(':input:disabled').removeAttr('disabled');
+    var cname=$('#edit-cname').val();
+    var chname=$('#edit-chname').val();
+    var sycontent=$('#edit-sycontent').val();
+    var syid=$('#edit-syid').val();
+    disabled.attr('disabled','disabled');
+    var operation='updateSyllabus'; 
+    $.ajax({
+      type: "POST",
+      url: "php/ajaxInterface/syllabus.php",
+      data:{operation:operation,cname:cname,chname:chname,sycontent:sycontent,syid:syid}
+    }).done(function(result)
+    {
+        console.log(result);
+       
+        $('#edit-success').fadeIn(200).delay(5000).fadeOut(1000);
+        $('#edit-form')[0].reset();
+        $('#edit-syllabus').hide();
+		$('#syllabus-table').show();
+		$('#btns').show();
+        
+        load_All();
+        
+                      
+    });
+  
+  });  
+
+	$('#cancel-update').click(function() {
+		$('#edit-syllabus').hide();
+		$('#syllabus-table').show();
+		$('#btns').show();
+	});
+
+	$('#view-btn').click(function() {
+		var syid=$("input[type='radio'][name='ch']:checked").attr('id');
+    if(typeof syid == 'undefined'){
+      console.log(1);
+      $('#select-entry').fadeIn(200).delay(5000).fadeOut(1000);
+      return;
+    }
+    console.log(syid);
+    var operation='getSpecificSyllabus';
+    $.ajax({
+    type: "POST",
+    url: "php/ajaxInterface/syllabus.php",
+    data:{operation:operation,syid:syid}
+    }).done(function(result)
+    { console.log(result);
+    	
+      $('#view-cname').val(result['cname']);
+     $('#view-chname').val(result['chname']);
+      $('#view-sycontent').val(result['sycontent']);
+      $('#view-sydate').val(result['sydate']);
+		$('#view-syllabus').show();
+		$('#syllabus-table').hide();
+		$('#btns').hide();
+	});
+	});
+
+	$('#cancel-view').click(function() {
+		$('#view-syllabus').hide();
+		$('#syllabus-table').show();
+		$('#btns').show();
+	});
+
+	$('#delete-btn').click(function(){
+   	var x=confirm('Do you really want to delete?');
+    if(x){
+    var syid=$("input[type='radio'][name='ch']:checked").attr('id');
+    if(typeof syid == 'undefined'){
+      console.log(1);
+      $('#select-entry').fadeIn(200).delay(5000).fadeOut(1000);
+      return;
+    }
+    console.log(syid);
+    var operation='deleteSyllabus';
+    $.ajax({
+    type: "POST",
+    url: "php/ajaxInterface/syllabus.php",
+    data:{operation:operation,syid:syid}
+    }).done(function(result)
+    { console.log(result);
+    	 $('#delete').fadeIn(200).delay(5000).fadeOut(1000);
+    	load_All();
+	});
+}
+  });    
+	
+});
+</script>
