@@ -1,0 +1,857 @@
+<div class="row">
+	<div id="breadcrumb" class="col-md-12">
+		<ol class="breadcrumb">
+			<li><a href="index.html">Dashboard</a></li>
+			<li><a href="#">student</a></li>
+			<li><a href="#">addstudent</a></li>
+		</ol>
+	</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+           <div class="bg-success" id="add-success" hidden>
+                                            <i class="fa fa-check"></i> <b>Success!</b>
+                                            student saved Successfully.
+                                        </div>
+                                        <div class="bg-success" id="edit-success" hidden>
+                                            <i class="fa fa-check"></i> <b>Success!</b>
+                                            student edited Successfully.
+                                        </div>
+                                        
+                                        <div class="bg-warning" id="select-entry" hidden>
+                                            <i class="fa fa-ban"></i> <b>Error!</b>
+                                            Select an entry from below table.
+                                        </div>
+                                        <div class="bg-danger" id="delete" hidden>
+                                            <i class="fa fa-check"></i> <b>Success!</b>
+                                           student deleted Successfully.
+                                        </div>
+                                    </div>
+ </div>    
+<div class="row pull-right" id="btns">
+<div  class="col-md-12">
+<button type="button" class="btn btn-success btn-lg " id="student-btn" name="student-btn">Add </button>
+                  <button type="button" class="btn btn-warning btn-lg " id="edit-student-btn" name="edit-student-btn">Edit</button>
+                  <button type="button" class="btn btn-primary btn-lg" id="view-btn" name="view-btn">View </button>
+
+                   <button type="button" class="btn btn-danger btn-lg" id="delete-btn" name="delete-btn">Delete </button>
+</div>
+</div>                    
+<div class="row" id="student-table">
+	<div class="col-xs-12">
+    	<div class="box">
+			<div class="box-header">
+			    <div class="box-name">
+					<i class="fa fa-linux"></i>
+					<span>Student Details</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+					<a class="close-link">
+						<i class="fa fa-times"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content no-padding table-responsive">
+
+				<table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-2">
+				
+					<thead>
+						<tr>
+						    <th><label><input type="text" name="" value="" class="search_init" /></label></th>
+							<th><label><input type="text" name="search_fanem" value="Search Fname" class="search_init" /></label></th>
+							<th><label><input type="text" name="search_lname" value="Search Lname" class="search_init" /></label></th>
+							<th><label><input type="text" name="search_add" value="Search address" class="search_init" /></label></th>
+							<th><label><input type="text" name="search_con" value="Search contact" class="search_init" /></label></th>
+						</tr>
+					</thead>
+					<tbody id="view-row">
+						
+					</tbody>
+					<tfoot>
+						<tr>
+						    <th></th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Address</th>
+							<th>Contact Number</th>
+						
+					
+							
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row" id="add-student" hidden>
+	<div class="col-xs-12">
+    	<div class="box">
+			<div class="box-header">
+			    <div class="box-name">
+					<i class="fa fa-search"></i>
+					<span>Enter student Details</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+					<a class="close-link">
+						<i class="fa fa-times"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content">
+				<h4 class="page-header">Enter student Details</h4>
+				<form class="form-horizontal" role="form" id="add-form">
+					<div class="form-group ">
+						<label class="col-sm-2 control-label">First Name</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="First Name" id="fname" name="fname">
+						</div>
+						
+					</div>
+					<div class="form-group ">
+						<label class="col-sm-2 control-label">Last Name</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="Last Name"  id="lname" name="lname">
+						</div>
+						
+					</div>
+					<div class="form-group">
+					<label class="col-sm-2 control-label">Gender</label>
+					<div class="col-sm-4">
+						<div class="radio-inline ">
+							<label >
+								<input type="radio" name="radio-inline"  id="gender" value="male"> Male
+								<i class="fa fa-circle-o"></i>
+							</label>
+						</div>
+						<div class="radio-inline">
+							<label>
+								<input type="radio" name="radio-inline"  id="gender" value="female"> Female
+								<i class="fa fa-circle-o"></i>
+							</label>
+						</div>
+					</div>	
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Designation</label>
+						<div class="col-sm-4">
+							<select id="desig">
+							<option>-----</option>
+							<option>student</option>
+							<option>other</option>
+						</select>
+						</div>
+						
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">College Name</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="College Name" id="collname" name="collname" disabled="true">
+						</div>
+						
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Work Place Name</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="Company" id="comname" name="comname" disabled="true">
+						</div>
+						
+					</div>
+					<div class="form-group ">
+						<label class="col-sm-2 control-label">Address</label>
+						<div class="col-sm-4">
+							<textarea  class="form-control" placeholder="Address" name="add" id="add"></textarea>
+							
+						</div>
+						
+					</div>
+
+					<div class="form-group">
+							<label class="col-sm-2 control-label">Phone number</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" name="mno" id="mno" />
+							</div>
+						</div>
+					<div class="form-group">
+							<label class="col-sm-2 control-label">alternate number</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" name="almno" id="almno" />
+							</div>
+						</div>
+					<div class="form-group">
+							<label class="col-sm-2 control-label">Email address</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" name="email" id="email" />
+							</div>
+					</div>
+					<div class="form-group">
+							<label class="col-sm-2 control-label">Fees Paid</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" name="fpaid" id="fpaid" />
+							</div>
+						</div>
+					<div class="form-group">
+							<label class="col-sm-2 control-label">Remaining Fee</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" name="rfee" id="rfee" />
+							</div>
+						</div>
+						<div class="form-group has-error has-feedback">
+						<label class="col-sm-2 control-label">Admission Date</label>
+						<div class="col-sm-2">
+							<input type="text" id="adate" class="form-control" placeholder="Date"   name="adate">
+							<span class="fa fa-calendar txt-danger form-control-feedback"></span>
+						</div>
+						
+						
+					</div>
+					<div class="form-group has-error has-feedback">
+						<label class="col-sm-2 control-label">Admission EndDate</label>
+						<div class="col-sm-2">
+							<input type="text" id="edate" class="form-control" placeholder="Date">
+							<span class="fa fa-calendar txt-danger form-control-feedback"></span>
+						</div>
+						
+						
+					</div>
+					<div class="form-group has-error has-feedback">
+						<label class="col-sm-2 control-label">Fee Paid Date</label>
+						<div class="col-sm-2">
+							<input type="text" id="fdate" class="form-control" placeholder="Date">
+							<span class="fa fa-calendar txt-danger form-control-feedback"></span>
+						</div>
+						
+						
+					</div>
+					</form>
+					<div class="clearfix"></div>
+
+
+					<div >
+						
+					
+							<button type="submit" class="btn btn-primary btn-label-left" id="save" name="save">
+							<span><i class="fa fa-clock-o"></i></span>
+								Submit
+							</button>
+							<button type="cancel" class="btn btn-default btn-label-left" id="cancel" name="cancel">
+							<span><i class="fa fa-clock-o txt-danger"></i></span>
+								Cancel
+						   </button>
+						</div>
+              </div>   
+
+	</div>
+</div>
+</div>
+
+<div class="row" id="view-student" hidden>
+	<div class="col-xs-12">
+    	<div class="box">
+			<div class="box-header">
+			    <div class="box-name">
+					<i class="fa fa-search"></i>
+					<span>View Student Details</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+					<a class="close-link">
+						<i class="fa fa-times"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content">
+				<h4 class="page-header">View Details</h4>
+				<form class="form-horizontal" role="form" id="edit-form">
+					<div class="form-group ">
+						<label class="col-sm-2 control-label">First Name</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="First Name" id="view-fname" name="view-fname" disabled="true">
+						</div>
+						
+					</div>
+					<div class="form-group ">
+						<label class="col-sm-2 control-label">Last Name</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="Last Name" id="view-lname" name="view-lname" disabled="true">
+						</div>
+						
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Gender</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="Gender" disabled="true" id="view-gender" name="view-gender" disabled="true">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Designation</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="Designation" disabled="true" id="view-desig" name="view-desig" disabled="true">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Work Place Name</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="Work" disabled="true" id="view-work" name="view-work" disabled="true">
+						</div>
+						
+					</div>
+					<div class="form-group ">
+						<label class="col-sm-2 control-label">Address</label>
+						<div class="col-sm-4">
+							<textarea  class="form-control" placeholder="Address" id="view-add" name="view-add" disabled="true"></textarea>
+							
+						</div>
+						
+					</div>
+
+					<div class="form-group">
+							<label class="col-sm-2 control-label">Phone number</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="view-mno" name="view-mno" disabled="true" />
+							</div>
+					</div>
+					<div class="form-group">
+							<label class="col-sm-2 control-label">alternate number</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="view-almno" name="view-almno" disabled="true" />
+							</div>
+						</div>
+					<div class="form-group">
+							<label class="col-sm-2 control-label">Email address</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="view-email" name="view-email" disabled="true" />
+							</div>
+					</div>
+					<div class="form-group">
+							<label class="col-sm-2 control-label">Fees Paid</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="view-fpaid" name="view-fpaid" disabled="true" />
+							</div>
+						</div>
+					<div class="form-group">
+							<label class="col-sm-2 control-label">Remaining Fee</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="view-rfee" name="view-rfee" disabled="true" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Admission Date</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="view-adate" name="view-adate" disabled="true" />
+							</div>
+						</div>
+					<div class="form-group">
+							<label class="col-sm-2 control-label">Admission End Date</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="view-edate" name="view-edate" disabled="true" />
+							</div>
+						</div>
+					<div class="form-group">
+							<label class="col-sm-2 control-label">Fee Paid Date</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="view-fdate" name="view-fdate" disabled="true" />
+							</div>
+						</div>
+					</form>
+					<div class="clearfix"></div>
+
+
+					<div >
+						
+					
+							
+							<button type="cancel" class="btn btn-default btn-label-left" id="cancel-view" name="cancel-view">
+							<span><i class="fa fa-clock-o txt-danger"></i></span>
+								Close
+						   </button>
+						</div>
+              </div>   
+
+	</div>
+</div>
+</div>
+
+<div class="row" id="edit-student" hidden>
+	<div class="col-xs-12">
+    	<div class="box">
+			<div class="box-header">
+			    <div class="box-name">
+					<i class="fa fa-search"></i>
+					<span>Edit Student Details</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+					<a class="close-link">
+						<i class="fa fa-times"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content">
+				<h4 class="page-header">Enter Details</h4>
+				<form class="form-horizontal" role="form" id="edit-form">
+				<div class="form-group" hidden>
+						<label class="col-sm-2 control-label">sid</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="Course Name" id="edit-sid" name="edit-sid" hidden>
+						</div>
+						
+					</div>
+					<div class="form-group ">
+						<label class="col-sm-2 control-label">First Name</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="Course Name" id="edit-fname" name="edit-fname">
+						</div>
+						
+					</div>
+					<div class="form-group ">
+						<label class="col-sm-2 control-label">Last Name</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="Details" id="edit-lname" name="edit-lname">
+						</div>
+						
+					</div>
+			<!--<div class="form-group">
+						<label class="col-sm-2 control-label">Gender</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="Company" disabled="true" id="edit-gender" name="edit-gender" disabled="true">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Designation</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="Company" disabled="true" id="edit-desig" name="edit-desig" disabled="true">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Work Place Name</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="Company" disabled="true" id="edit-work" name="edit-work" disabled="true">
+						</div>
+						
+					</div>-->
+					<div class="form-group ">
+						<label class="col-sm-2 control-label">Address</label>
+						<div class="col-sm-4">
+							<textarea  class="form-control" placeholder="Address" id="edit-add" name="edit-add"></textarea>
+							
+						</div>
+						
+					</div>
+
+					<div class="form-group">
+							<label class="col-sm-2 control-label">Phone number</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="edit-mno" name="edit-mno" />
+							</div>
+						</div>
+					<div class="form-group">
+							<label class="col-sm-2 control-label">alternate number</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="edit-almno" name="edit-almno" />
+							</div>
+						</div>
+					<div class="form-group">
+							<label class="col-sm-2 control-label">Email address</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="edit-email" name="edit-email" />
+							</div>
+					</div>
+					<div class="form-group">
+							<label class="col-sm-2 control-label">Fees Paid</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="edit-fpaid" name="edit-fpaid" />
+							</div>
+						</div>
+					<div class="form-group">
+							<label class="col-sm-2 control-label">Remaining Fee</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="edit-rfee" name="edit-rfee" />
+							</div>
+						</div>
+						<div class="form-group has-error has-feedback">
+						<label class="col-sm-2 control-label">Admission Date</label>
+						<div class="col-sm-2">
+							<input type="text" id="edit-adate" name="edit-adate" class="form-control" placeholder="Date">
+							<span class="fa fa-calendar txt-danger form-control-feedback"></span>
+						</div>
+						
+						
+					</div>
+					<div class="form-group has-error has-feedback">
+						<label class="col-sm-2 control-label">Admission EndDate</label>
+						<div class="col-sm-2">
+							<input type="text" id="edit-edate" name="edit-edate" class="form-control" placeholder="Date">
+							<span class="fa fa-calendar txt-danger form-control-feedback"></span>
+						</div>
+						
+						
+					</div>
+					<div class="form-group has-error has-feedback">
+						<label class="col-sm-2 control-label">Fee Paid Date</label>
+						<div class="col-sm-2">
+							<input type="text" id="edit-fdate" name="edit-fdate" class="form-control" placeholder="Date">
+							<span class="fa fa-calendar txt-danger form-control-feedback"></span>
+						</div>
+						
+						
+					</div>
+					</form>
+					<div class="clearfix"></div>
+
+
+					<div >
+						
+					
+							<button type="submit" class="btn btn-primary btn-label-left" id="update" name="update">
+							<span><i class="fa fa-clock-o"></i></span>
+								Update
+							</button>
+							<button type="cancel" class="btn btn-default btn-label-left" id="cancel-update" name="cancel-update">
+							<span><i class="fa fa-clock-o txt-danger"></i></span>
+								Cancel
+						   </button>
+						</div>
+              </div>   
+
+	</div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+// Run Datables plugin and create 3 variants of settings
+function AllTables(){
+	TestTable1();
+	TestTable2();
+	TestTable3();
+	LoadSelect2Script(MakeSelect2);
+}
+function MakeSelect2(){
+	$('select').select2();
+	$('.dataTables_filter').each(function(){
+		$(this).find('label input[type=text]').attr('placeholder', 'Search');
+	});
+}
+function DemoSelect2(){
+	$('#s2_with_tag').select2({placeholder: "Select OS"});
+	$('#s2_country').select2();
+}
+// Run timepicker
+function DemoTimePicker(){
+	$('#adate').timepicker({setDate: new Date()});
+	$('#edate').timepicker({setDate: new Date()});
+	$('#fdate').timepicker({setDate: new Date()});
+	$('#edit-adate').timepicker({setDate: new Date()});
+	$('#edit-edate').timepicker({setDate: new Date()});
+	$('#edit-fdate').timepicker({setDate: new Date()});
+}
+
+function load_All(){
+  var operation='getAllStudents';
+  $.ajax({
+    type: "POST",
+    url: "php/ajaxInterface/student.php",
+    data:{operation:operation}
+    }).done(function(result)
+    { console.log(result);
+      m=result;
+      var dis='';
+      for(i=0;i<result.length;i++){
+        dis+='<tr>';
+        dis+="<td><input type='radio' name='ch' id='"+result[i]['sid']+"'</td>";
+        dis+="<td>"+result[i]['fname']+"</td>";
+        dis+="<td>"+result[i]['lname']+"</td>";
+        dis+="<td>"+result[i]['add']+"</td>";
+        dis+="<td>"+result[i]['mno']+"</td>";
+        
+        dis+='</tr>';
+      }
+      $('#view-row').html(dis);
+     
+
+    });
+
+
+} 
+var work;
+var desig;
+$(document).ready(function() {
+	TinyMCEStart('#wysiwig_full', 'extreme');
+	// Load Datatables and run plugin on tables 
+	LoadDataTablesScripts(AllTables);
+	// Initialize datepicker
+	$('#adate').datepicker({setDate: new Date()});
+	$('#edate').datepicker({setDate: new Date()});
+	$('#fdate').datepicker({setDate: new Date()});
+	$('#edit-adate').datepicker({setDate: new Date()});
+	$('#edit-edate').datepicker({setDate: new Date()});
+    $('#edit-fdate').datepicker({setDate: new Date()});
+	// Load Timepicker plugin
+	LoadTimePickerScript(DemoTimePicker);
+	// Add tooltip to form-controls
+	$('.form-control').tooltip();
+	LoadSelect2Script(DemoSelect2);
+	// Load example of form validation
+	LoadBootstrapValidatorScript(DemoFormValidator);
+	// Add drag-n-drop feature to boxes
+    WinMove();
+    //main code
+    load_All();
+        $('.selectpicker').selectpicker();
+	$('#student-btn').click(function() {
+		$('#add-student').show();
+		$('#student-table').hide();
+		$('#btns').hide();
+	});
+
+	$('#cancel').click(function() {
+		$('#add-student').hide();
+		$('#student-table').show();
+		$('#btns').show();
+	});
+
+	$('#desig').change(function(){ 
+               desig=$('#desig').val();
+              console.log(desig);     
+              if(desig=='student') {
+              	$("#comname").attr('disabled',true);
+              	 $("#collname").removeAttr('disabled',true);
+              	     
+              	   
+              } else {
+              	$("#collname").attr('disabled',true);
+              	$("#comname").removeAttr('disabled',true);
+              	 
+              }
+          });
+
+	$('#save').click(function(){
+   
+             //var disabled = $('#add-cname-form').find(':input:disabled').removeAttr('disabled'); 
+             var fname= $('#fname').val();        
+              var lname=$('#lname').val();
+              
+              var gender= $("input[type='radio'][name='radio-inline']:checked").attr('value');
+              console.log(gender);
+              var isDisabled = $('#collname').prop('disabled');
+              if(isDisabled) {
+              	work=$('#comname').val();
+              }else {
+              	work=$('#collname').val();
+              }
+              console.log(work);
+              var add=$('#add').val();
+              var mno=$('#mno').val();
+              var almno=$('#almno').val();
+              var email=$('#email').val();
+              var fpaid=$('#fpaid').val();
+              var rfee=$('#rfee').val();
+              var adate=$('#adate').val();
+              var edate=$('#edate').val();
+              var fdate=$('#fdate').val();
+              console.log(work);
+              var operation='createStudent';
+                            
+              $.ajax({
+               type: "POST",
+                url: "php/ajaxInterface/student.php",
+                data:{operation:operation,fname:fname,lname:lname,gender:gender,desig:desig,work:work,add:add,mno:mno,almno:almno,email:email,fpaid:fpaid,rfee:rfee,adate:adate,edate:edate,fdate:fdate}
+                 }).done(function(result)
+                 { 
+                    console.log(result);
+                    if(result==1){
+                         $('#add-success').fadeIn(200).delay(5000).fadeOut(1000);
+                         $('#add-form')[0].reset();
+                         $('#add-student').hide();
+		                 $('#student-table').show();
+		                 $('#btns').show();
+                         load_All();
+                       }else{
+                      $('#exist').fadeIn(200).delay(5000).fadeOut(1000);
+                  }
+             }); 
+      
+ 
+      
+             
+  });
+
+	$('#view-btn').click(function() {
+		var sid=$("input[type='radio'][name='ch']:checked").attr('id');
+    if(typeof sid == 'undefined'){
+      console.log(1);
+      $('#select-entry').fadeIn(200).delay(5000).fadeOut(1000);
+      return;
+    }
+    console.log(sid);
+    var operation='getSpecificStudent';
+    $.ajax({
+    type: "POST",
+    url: "php/ajaxInterface/student.php",
+    data:{operation:operation,sid:sid}
+    }).done(function(result)
+    { console.log(result);
+    	
+      $('#view-fname').val(result['fname']);
+     $('#view-lname').val(result['lname']);
+      $('#view-gender').val(result['gender']);
+      $('#view-desig').val(result['desig']);
+      $('#view-work').val(result['work']);
+     $('#view-add').val(result['add']);
+      $('#view-mno').val(result['mno']);
+      $('#view-almno').val(result['almno']);
+      $('#view-email').val(result['email']);
+      $('#view-fpaid').val(result['fpaid']);
+     $('#view-rfee').val(result['rfee']);
+      $('#view-adate').val(result['adate']);
+      $('#view-edate').val(result['edate']);
+      $('#view-fdate').val(result['fdate']);
+		$('#view-student').show();
+		$('#student-table').hide();
+		$('#btns').hide();
+	});
+	});
+  
+  $('#edit-student-btn').click(function() {
+		var sid=$("input[type='radio'][name='ch']:checked").attr('id');
+    if(typeof sid == 'undefined'){
+      console.log(1);
+      $('#select-entry').fadeIn(200).delay(5000).fadeOut(1000);
+      return;
+    }
+    console.log(sid);
+    var operation='getSpecificStudent';
+    $.ajax({
+    type: "POST",
+    url: "php/ajaxInterface/student.php",
+    data:{operation:operation,sid:sid}
+    }).done(function(result)
+    { console.log(result);
+      $('#edit-sid').val(result['sid']);
+      $('#edit-fname').val(result['fname']);
+      $('#edit-lname').val(result['lname']);
+      $('#edit-add').val(result['add']);
+      $('#edit-mno').val(result['mno']);
+      $('#edit-almno').val(result['almno']);
+      $('#edit-email').val(result['email']);
+      $('#edit-fpaid').val(result['fpaid']);
+      $('#edit-rfee').val(result['rfee']);
+      $('#edit-adate').val(result['adate']);
+      $('#edit-edate').val(result['edate']);
+      $('#edit-fdate').val(result['fdate']);
+		$('#edit-student').show();
+		$('#student-table').hide();
+		$('#btns').hide();
+	});
+	});
+
+	$('#cancel-view').click(function() {
+		$('#view-student').hide();
+		$('#student-table').show();
+		$('#btns').show();
+	});
+
+	$('#update').click(function(){
+   
+              var sid= $('#edit-sid').val();
+              var fname= $('#edit-fname').val();        
+              var lname=$('#edit-lname').val();
+              var add=$('#edit-add').val();
+              var mno=$('#edit-mno').val();
+              var almno=$('#edit-almno').val();
+              var email=$('#edit-email').val();
+              var fpaid=$('#edit-fpaid').val();
+              var rfee=$('#edit-rfee').val();
+              var adate=$('#edit-adate').val();
+              var edate=$('#edit-edate').val();
+              var fdate=$('#edit-fdate').val();
+              
+              var operation='updateStudent';
+                            
+              $.ajax({
+               type: "POST",
+                url: "php/ajaxInterface/student.php",
+                data:{operation:operation,sid:sid,fname:fname,lname:lname,add:add,mno:mno,almno:almno,email:email,fpaid:fpaid,rfee:rfee,adate:adate,edate:edate,fdate:fdate}
+                 }).done(function(result)
+                 { 
+                    console.log(result);
+                    if(result==1){
+                         $('#add-success').fadeIn(200).delay(5000).fadeOut(1000);
+                         $('#add-form')[0].reset();
+                         $('#add-student').hide();
+		                 $('#student-table').show();
+		                 $('#btns').show();
+                         load_All();
+                       }else{
+                      $('#exist').fadeIn(200).delay(5000).fadeOut(1000);
+                  }
+             }); 
+      
+ 
+      
+             
+  });
+
+	$('#cancel-update').click(function() {
+		$('#edit-student').hide();
+		$('#student-table').show();
+		$('#btns').show();
+	});
+
+	 $('#delete-btn').click(function(){
+   	var x=confirm('Do you really want to delete?');
+    if(x){
+    var sid=$("input[type='radio'][name='ch']:checked").attr('id');
+    if(typeof sid == 'undefined'){
+      console.log(1);
+      $('#select-entry').fadeIn(200).delay(5000).fadeOut(1000);
+      return;
+    }
+    console.log(sid);
+    var operation='deleteStudent';
+    $.ajax({
+    type: "POST",
+    url: "php/ajaxInterface/student.php",
+    data:{operation:operation,sid:sid}
+    }).done(function(result)
+    { console.log(result);
+    	 $('#delete').fadeIn(200).delay(5000).fadeOut(1000);
+    	load_All();
+	});
+}
+  });  
+	
+});
+</script>
