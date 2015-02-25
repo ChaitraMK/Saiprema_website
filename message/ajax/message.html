@@ -1,0 +1,151 @@
+<div class="row">
+	<div id="breadcrumb" class="col-md-12">
+		<ol class="breadcrumb">
+			<li><a href="index.html">Dashboard</a></li>
+			<li><a href="#">message</a></li>
+			<li><a href="#">sendmessage</a></li>
+		</ol>
+	</div>
+</div>
+
+<div class="row" id="add-message">
+	<div class="col-xs-12">
+    	<div class="box">
+			<div class="box-header">
+			    <div class="box-name">
+					<i class="fa fa-search"></i>
+					<span>Enter student Details</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+					<a class="close-link">
+						<i class="fa fa-times"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content">
+				<h4 class="page-header">Enter student Details</h4>
+				<form class="form-horizontal" role="form" id="add-form">
+				<div class="form-group">
+						<label class="col-sm-2 control-label">Select Number</label>
+						<div class="col-sm-4">
+							<select multiple="multiple" class="populate placeholder" id="contact" 
+							name="contact">
+							   
+						</select>
+						</div>
+						
+					</div>
+				
+
+					<div class="form-group has-success has-feedback">
+						<label class="col-sm-2 control-label" for="form-styles">Enter Message</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" rows="5" id="mess" name="mess">
+								
+							</textarea>
+						</div>
+						
+					</div>
+					</form>
+					<div class="clearfix"></div>
+
+
+					<div >
+						
+					
+							<button type="submit" class="btn btn-primary btn-label-left" id="send" name="send">
+							<span><i class="fa fa-clock-o"></i></span>
+								Send
+							</button>
+							<button type="cancel" class="btn btn-default btn-label-left" id="cancel" name="cancel">
+							<span><i class="fa fa-clock-o txt-danger"></i></span>
+								clear
+						   </button>
+						</div>
+              </div>   
+
+	</div>
+</div>
+</div>
+<div class="row" id="send-message" hidden>
+	<div class="col-xs-12">
+    	<button type="button" class="btn btn-danger btn-app"><i class="fa fa-spinner fa-spin"></i></button>
+</div>
+</div>
+<script type="text/javascript">
+function DemoSelect2(){
+	$('#contact').select2({placeholder: "Select contact"});
+	$('#s2_country').select2();
+}
+
+$(document).ready(function() {
+	// Create Wysiwig editor for textare
+	
+	TinyMCEStart('#message', 'extreme');
+	
+	// Add tooltip to form-controls
+	$('.form-control').tooltip();
+	LoadSelect2Script(DemoSelect2);
+	// Load example of form validation
+	LoadBootstrapValidatorScript(DemoFormValidator);
+	// Add drag-n-drop feature to boxes
+	WinMove();
+
+	var operation='getAllStudentContact';
+  $.ajax({
+      type:'POST',
+      url:"php/ajaxInterface/student.php",
+      data:{operation:operation}
+    }).done(function(result){
+       console.log(result);
+      var dis='';
+      for(var i=0;i<result.length;i++){
+        dis+="<option>"+result[i]['mno']+"</option>";
+      }
+      $('#contact').html('<option id="-1">---</option>'+dis);
+      
+     
+      
+    });
+    
+     $('#cancel').click(function() {
+    	$('#contact').val("");
+    	 	$('#mess').val("");
+    });
+
+	$('#send').click(function() {
+		/*var message = document.getElementById('message_ifr').contentWindow.document.body.innerHTML;
+			console.log(message);
+		document.getElementById('mess').innerHTML = message;*/
+		 $('#add-message').hide();
+    	 	$('#send-message').show();
+		 var contact=$('#contact').val();
+         console.log(contact);
+
+	     var mess=$('#mess').val();
+		console.log(mess);
+       var contact = JSON.stringify(contact);
+  $.ajax({
+    type: "POST",
+    url: "php/send-sms.php",
+    data:{operation:operation,contact:contact,mess:mess}
+    }).done(function(result)
+    { console.log(result);
+    	 if(result) {
+    	        $('#add-message').show();
+    	 	$('#send-message').hide();
+    	 	$('#contact').val(' ');
+    	 	$('#mess').val(' ');
+    	 }
+	});
+});
+
+});
+</script>
