@@ -1,0 +1,450 @@
+<div class="row">
+	<div id="breadcrumb" class="col-md-12">
+		<ol class="breadcrumb">
+			<li><a href="index.html">Dashboard</a></li>
+			<li><a href="#">Courses</a></li>
+			<li><a href="#">addcourse</a></li>
+		</ol>
+	</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+           <div class="bg-success" id="add-success" hidden>
+                                            <i class="fa fa-check"></i> <b>Success!</b>
+                                            course saved Successfully.
+                                        </div>
+                                        <div class="bg-success" id="edit-success" hidden>
+                                            <i class="fa fa-check"></i> <b>Success!</b>
+                                            Course edited Successfully.
+                                        </div>
+                                        
+                                        <div class="bg-warning" id="select-entry" hidden>
+                                            <i class="fa fa-ban"></i> <b>Error!</b>
+                                            Select an entry from below table.
+                                        </div>
+                                        <div class="bg-danger" id="delete" hidden>
+                                            <i class="fa fa-check"></i> <b>Success!</b>
+                                            Course deleted Successfully.
+                                        </div>
+                                    </div>
+ </div>                                   
+<div class="row pull-right" id="btns">
+<div  class="col-md-12 ">
+<button type="button" class="btn btn-success btn-lg " id="course-btn" name="course-btn">Add </button>
+                  <button type="button" class="btn btn-warning btn-lg " id="edit-course-btn" name="edit-course-btn">Edit</button>
+
+                   <button type="button" class="btn btn-danger btn-lg" id="delete-btn" name="delete-btn">Delete </button>
+</div>
+</div>                   
+<div class="row" id="course-table">
+	<div class="col-xs-12">
+    	<div class="box">
+			<div class="box-header">
+			    <div class="box-name">
+					<i class="fa fa-linux"></i>
+					<span>course Details</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+					<a class="close-link">
+						<i class="fa fa-times"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content no-padding table-responsive">
+
+				<table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-2">
+				
+					<thead>
+						<tr>
+						    <th><label><input type="text" name="search_code"  class="search_init" disabled="true" /></label></th>
+							<th><label><input type="text" name="search_code" value="Search Code" class="search_init" /></label></th>
+							<th><label><input type="text" name="search_name" value="Search Name" class="search_init" /></label></th>
+							<th><label><input type="text" name="search_desc" value="Search Description" class="search_init" /></label></th>
+							
+						</tr>
+					</thead>
+					<tbody id="view-row">
+						
+					</tbody>
+					<tfoot>
+						<tr>
+						    <th></th>
+							<th>Course Code</th>
+							<th>Corse Name</th>
+							<th>Description</th>
+							
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row" id="add-course" hidden>
+	<div class="col-xs-12">
+    	<div class="box">
+			<div class="box-header">
+			    <div class="box-name">
+					<i class="fa fa-search"></i>
+					<span>Enter course</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+					<a class="close-link">
+						<i class="fa fa-times"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content">
+				<h4 class="page-header">Entering Course</h4>
+				<div class="bg-danger" id="exist" hidden>
+                                        <i class="fa fa-ban"></i> <b>Error!</b>
+                                        Course already exist.
+                                    </div>
+				<form class="form-horizontal" role="form" id="add-form">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Course code</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="" data-toggle="tooltip" data-placement="bottom" title="Tooltip for name" id="ccode" name="ccode" disabled="true">
+						</div>
+						
+					</div>
+					<div class="form-group has-success has-feedback">
+						<label class="col-sm-2 control-label">Course Name</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="Course Name" id="cname" name="cname">
+						</div>
+						
+					</div>
+					<div class="form-group has-success has-feedback">
+						<label class="col-sm-2 control-label">Details</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="Details" id="cdetails" name="cdetails">
+						</div>
+						
+					</div>
+					
+					</form>
+					<div class="clearfix"></div>
+
+
+					<div >
+						
+					
+							<button type="submit" class="btn btn-primary btn-label-left" id="save" name="save">
+							<span><i class="fa fa-clock-o"></i></span>
+								Submit
+							</button>
+							<button type="cancel" class="btn btn-default btn-label-left" id="cancel" name="cancel">
+							<span><i class="fa fa-clock-o txt-danger"></i></span>
+								Cancel
+						   </button>
+						</div>
+              </div>   
+
+	</div>
+</div>
+</div>
+
+<div class="row" id="edit-course" hidden>
+	<div class="col-xs-12">
+    	<div class="box">
+			<div class="box-header">
+			    <div class="box-name">
+					<i class="fa fa-search"></i>
+					<span>Enter course</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+					<a class="close-link">
+						<i class="fa fa-times"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content">
+				<h4 class="page-header">Edit Course</h4>
+				<form class="form-horizontal" role="form" id="edit-form">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Course code</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" placeholder="" data-toggle="tooltip" data-placement="bottom" title="Tooltip for name" id="edit-ccode" name="edit-ccode" disabled="true">
+						</div>
+						
+					</div>
+					<div class="form-group has-success has-feedback">
+						<label class="col-sm-2 control-label">Course Name</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="edit-cname" name="edit-cname" placeholder="Course Name">
+						</div>
+						
+					</div>
+					<div class="form-group has-success has-feedback">
+						<label class="col-sm-2 control-label">Details</label>
+						<div class="col-sm-4">
+						  <input type="text" class="form-control" id="edit-cdetails" name="edit-cdetails" placeholder="Course Name">
+						</div>
+						
+					</div>
+					
+					</form>
+					<div class="clearfix"></div>
+
+
+					<div >
+						
+					
+							<button type="submit" class="btn btn-primary btn-label-left" id="update" name="update">
+							<span><i class="fa fa-clock-o"></i></span>
+								Update
+							</button>
+							<button type="cancel" class="btn btn-default btn-label-left" id="cancel-update" name="cancel-update">
+							<span><i class="fa fa-clock-o txt-danger"></i></span>
+								Cancel
+						   </button>
+						</div>
+              </div>   
+
+	</div>
+</div>
+</div>
+
+<script type="text/javascript">
+// Run Datables plugin and create 3 variants of settings
+function AllTables(){
+	TestTable1();
+	TestTable2();
+	TestTable3();
+	LoadSelect2Script(MakeSelect2);
+}
+function MakeSelect2(){
+	$('select').select2();
+	$('.dataTables_filter').each(function(){
+		$(this).find('label input[type=text]').attr('placeholder', 'Search');
+	});
+}
+function DemoSelect2(){
+	$('#s2_with_tag').select2({placeholder: "Select OS"});
+	$('#s2_country').select2();
+}
+// Run timepicker
+function DemoTimePicker(){
+	$('#input_time').timepicker({setDate: new Date()});
+}
+
+function load_All(){
+  var operation='getAllCourse';
+  $.ajax({
+    type: "POST",
+    url: "php/ajaxInterface/course.php",
+    data:{operation:operation}
+    }).done(function(result)
+    { console.log(result);
+      m=result;
+      var dis='';
+      for(i=0;i<result.length;i++){
+        dis+='<tr>';
+        dis+="<td><input type='radio' name='ch' id='"+result[i]['cid']+"'</td>";
+        dis+="<td>"+result[i]['ccode']+"</td>";
+        dis+="<td>"+result[i]['cname']+"</td>";
+        dis+="<td>"+result[i]['cdetails']+"</td>";
+        
+        
+        dis+='</tr>';
+      }
+      $('#view-row').html(dis);
+     
+
+    });
+
+
+} 
+
+$(document).ready(function() {
+	load_All();
+	// Load Datatables and run plugin on tables 
+	LoadDataTablesScripts(AllTables);
+	// Initialize datepicker
+	$('#input_date').datepicker({setDate: new Date()});
+	// Load Timepicker plugin
+	LoadTimePickerScript(DemoTimePicker);
+	// Add tooltip to form-controls
+	$('.form-control').tooltip();
+	LoadSelect2Script(DemoSelect2);
+	// Load example of form validation
+	LoadBootstrapValidatorScript(DemoFormValidator);
+	// Add drag-n-drop feature to boxes
+    WinMove();
+    //main code
+	$('#course-btn').click(function() {
+        if($('#add-form').valid()){
+    		var operation='getCourseCode';
+
+  $.ajax({
+      type:'POST',
+      url:"php/ajaxInterface/course.php",
+      data:{operation:operation}
+    }).done(function(result){
+      console.log(result);
+              if(result==null) {
+                result=1;
+                $('#ccode').val(result);
+              } else {
+              ccode=parseInt(result);
+              ccode+=1;
+              
+              $('#ccode').val(ccode);
+             } 
+              
+    $('#add-course').show();
+		$('#course-table').hide();
+		$('#btns').hide();
+
+  });
+   } 
+		
+	});
+
+	$('#save').click(function(){
+   if($('#add-form').valid()){
+             //var disabled = $('#add-cname-form').find(':input:disabled').removeAttr('disabled');          
+              var ccode=$('#ccode').val();
+              var cname=$('#cname').val();
+              var cdetails=$('#cdetails').val();
+              console.log(cdetails);
+              var operation='createCourse';
+                            
+              $.ajax({
+               type: "POST",
+                url: "php/ajaxInterface/course.php",
+                data:{operation:operation,ccode:ccode,cname:cname,cdetails:cdetails}
+                 }).done(function(result)
+                 { 
+                    console.log(result);
+                    if(result==1){
+                         $('#add-success').fadeIn(200).delay(5000).fadeOut(1000);
+                         $('#add-form')[0].reset();
+                         $('#add-course').hide();
+		                 $('#course-table').show();
+		                 $('#btns').show();
+                         load_All();
+                       }else{
+                      $('#exist').fadeIn(200).delay(5000).fadeOut(1000);
+                  }
+             }); 
+      
+ 
+      
+        }      
+  });
+
+	$('#cancel').click(function() {
+		$('#add-course').hide();
+		$('#course-table').show();
+		$('#btns').show();
+	});
+
+	$('#edit-course-btn').click(function() {
+		var cid=$("input[type='radio'][name='ch']:checked").attr('id');
+    if(typeof cid == 'undefined'){
+      console.log(1);
+      $('#select-entry').fadeIn(200).delay(5000).fadeOut(1000);
+      return;
+    }
+    console.log(cid);
+    var operation='getSpecificCourse';
+    $.ajax({
+    type: "POST",
+    url: "php/ajaxInterface/course.php",
+    data:{operation:operation,cid:cid}
+    }).done(function(result)
+    { console.log(result);
+    	$('#edit-ccode').val(result['ccode']);
+      $('#edit-cname').val(result['cname']);
+      $('#edit-cdetails').val(result['cdetails']);
+		$('#edit-course').show();
+		$('#course-table').hide();
+		$('#btns').hide();
+	});
+	});
+
+	$('#update').click(function(){
+    if($('#edit-form').valid()){
+    var disabled = $('#edit-form').find(':input:disabled').removeAttr('disabled');
+    var ccode=$('#edit-ccode').val();
+    var cname=$('#edit-cname').val();
+    var cdetails=$('#edit-cdetails').val();
+    disabled.attr('disabled','disabled');
+    var operation='updateCourse'; 
+    $.ajax({
+      type: "POST",
+      url: "php/ajaxInterface/course.php",
+      data:{operation:operation,ccode:ccode,cname:cname,cdetails:cdetails}
+    }).done(function(result)
+    {
+        console.log(result);
+        if(result==1){
+        $('#edit-success').fadeIn(200).delay(5000).fadeOut(1000);
+        $('#edit-form')[0].reset();
+        $('#edit-course').hide();
+		$('#course-table').show();
+		$('#btns').show();
+        
+        load_All();
+        }else{
+                      $('#editexist').fadeIn(200).delay(5000).fadeOut(1000);
+                  }
+    });
+    }
+  });   
+   
+   $('#delete-btn').click(function(){
+   	var x=confirm('Do you really want to delete?');
+    if(x){
+    var cid=$("input[type='radio'][name='ch']:checked").attr('id');
+    if(typeof cid == 'undefined'){
+      console.log(1);
+      $('#select-entry').fadeIn(200).delay(5000).fadeOut(1000);
+      return;
+    }
+    console.log(cid);
+    var operation='deleteCourse';
+    $.ajax({
+    type: "POST",
+    url: "php/ajaxInterface/course.php",
+    data:{operation:operation,cid:cid}
+    }).done(function(result)
+    { console.log(result);
+    	 $('#delete').fadeIn(200).delay(5000).fadeOut(1000);
+    	load_All();
+	});
+}
+  });   
+
+	$('#cancel-update').click(function() {
+		$('#edit-course').hide();
+		$('#course-table').show();
+		$('#btns').show();
+	});
+	
+});
+</script>
