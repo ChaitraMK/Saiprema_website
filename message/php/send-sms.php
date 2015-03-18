@@ -4,8 +4,8 @@
 // this line loads the library
 require "../twilio/Services/Twilio.php";
 
-$account_sid = "ACdcb07be670ddd2b5951cf0e6a265fbdd";
-$auth_token  = "924d5d0fd53f84fc27e38b2dc522cc76";
+$account_sid = ".................................";
+$auth_token  = "..........................";
 $client      = new Services_Twilio($account_sid, $auth_token);
 
 $contact = array();
@@ -14,7 +14,7 @@ var_dump($contact);
 $mess = $_POST['mess'];
 foreach ($contact as $c) {
 	$message = $client->account->messages->sendMessage(
-		'8478071716',
+		'...........',
 		$c,
 		$mess
 
